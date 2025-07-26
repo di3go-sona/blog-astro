@@ -4,13 +4,22 @@ const config: SiteConfig = {
   // Absolute URL to the root of your published site, used for generating links and sitemaps.
   site: 'https://multiterm-astro.stelclementine.com',
   // The name of your site, used in the title and for SEO.
-  title: 'MultiTerm',
+  title: 'di3go-sona',
   // The description of your site, used for SEO and RSS feed.
-  description: 'A coder-ready Astro blog theme with 59 of your favorite color schemes to choose from',
+  description:
+    'My personal blog, where I share my thoughts and experiences on coding, technology, and life.',
   // The author of the site, used in the footer, SEO, and RSS feed.
-  author: 'Katy Kookaburra',
+  author: 'Diego Sonaglia',
   // Keywords for SEO, used in the meta tags.
-  tags: ['Astro', 'Terminal', 'Theme', 'MultiTerm', 'stelcodes'],
+  tags: [
+    'Blog',
+    'Technology',
+    'Coding',
+    'Infrastructure',
+    'DevOps',
+    'Cybersecurity',
+    'IoT',
+  ],
   // Font imported from @fontsource or elsewhere, used for the entire site.
   // To change this see src/styles/global.css and import a different font.
   font: 'JetBrains Mono Variable',
@@ -19,26 +28,30 @@ const config: SiteConfig = {
   // The navigation links to display in the header.
   navLinks: [
     {
-      name: 'Home',
+      name: '🏠Home',
       url: '/',
     },
     {
-      name: 'Archive',
+      name: '📝Articles',
       url: '/posts',
     },
     {
-      name: 'GitHub',
-      url: 'https://github.com/stelcodes/multiterm-astro',
-      external: true,
-    }
+      name: '⛳️CTF Writeups',
+      url: '/writeups',
+    },
+    // {
+    //   name: '📟GitHub',
+    //   url: 'https://github.com/di3go-sona',
+    //   external: true,
+    // },
   ],
   // The theming configuration for the site.
   themes: {
     // The theming mode. One of "single" | "select" | "light-dark-auto".
-    mode: 'select',
+    mode: 'single',
     // The default theme identifier, used when themeMode is "select" or "light-dark-auto".
     // Make sure this is one of the themes listed in `themes` or "auto" for "light-dark-auto" mode.
-    default: 'catppuccin-macchiato',
+    default: 'catppuccin-latte',
     // Shiki themes to bundle with the site.
     // https://expressive-code.com/guides/themes/#using-bundled-themes
     // These will be used to theme the entire site along with syntax highlighting.
@@ -112,12 +125,12 @@ const config: SiteConfig = {
   },
   // Social links to display in the footer.
   socialLinks: {
-    github: 'https://github.com/stelcodes/multiterm-astro',
-    mastodon: 'https://github.com/stelcodes/multiterm-astro',
-    email: 'https://github.com/stelcodes/multiterm-astro',
-    linkedin: 'https://github.com/stelcodes/multiterm-astro',
-    bluesky: 'https://github.com/stelcodes/multiterm-astro',
-    twitter: 'https://github.com/stelcodes/multiterm-astro',
+    github: 'https://github.com/di3go-sona',
+    linkedin: 'https://www.linkedin.com/in/dsona/',
+    // mastodon: 'https://github.com/stelcodes/multiterm-astro',
+    // email: 'https://github.com/stelcodes/multiterm-astro',
+    // bluesky: 'https://github.com/stelcodes/multiterm-astro',
+    // twitter: 'https://github.com/stelcodes/multiterm-astro',
   },
 }
 
