@@ -21,8 +21,8 @@ const postsCollection = defineCollection({
     }),
 })
 
-const homeCollection = defineCollection({
-  loader: glob({ pattern: ['home.md', 'home.mdx'], base: './src/content' }),
+const homeHeaderCollection = defineCollection({
+  loader: glob({ pattern: ['header.md', 'header.mdx'], base: './src/content/home' }),
   schema: ({ image }) =>
     z.object({
       avatarImage: z
@@ -31,6 +31,13 @@ const homeCollection = defineCollection({
           alt: z.string().optional().default('My avatar'),
         })
         .optional(),
+    }),
+})
+
+const homeBodyCollection = defineCollection({
+  loader: glob({ pattern: ['body.md', 'body.mdx'], base: './src/content/home' }),
+  schema: ({ image }) =>
+    z.object({
       githubCalendar: z.string().optional(), // GitHub username for calendar
     }),
 })
@@ -49,7 +56,8 @@ const addendumCollection = defineCollection({
 })
 
 export const collections = {
+  homeBody: homeBodyCollection,
+  homeHeader: homeHeaderCollection,
   posts: postsCollection,
-  home: homeCollection,
   addendum: addendumCollection,
 }
