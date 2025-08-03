@@ -10,8 +10,8 @@ ASTRO_CONTENT_PATH = '/Users/di3go/Projects/multiterm-astro/src/content'
 OBSIDIAN_PAGES_PATH = f"{OBSIDIAN_VAULT_PATH}/Pages"
 OBSIDIAN_ASSETS_PATH = f"{OBSIDIAN_VAULT_PATH}/Assets"
 FOLDERS_MAPPING = {
-    f"{OBSIDIAN_PAGES_PATH}/Blog/Articles": f"{ASTRO_CONTENT_PATH}/articles/obsidian",
-    f"{OBSIDIAN_PAGES_PATH}/Blog/Writeups": f"{ASTRO_CONTENT_PATH}/writeups/obsidian"
+    f"{OBSIDIAN_PAGES_PATH}/Blog/Articles": f"{ASTRO_CONTENT_PATH}/articles",
+    f"{OBSIDIAN_PAGES_PATH}/Blog/Writeups": f"{ASTRO_CONTENT_PATH}/writeups"
 }
 
 all_types = []
@@ -34,14 +34,16 @@ if __name__ == "__main__":
 
         for full_filename in list_documents(source_folder_path):
             filename, extension = os.path.splitext(full_filename)
-            source_file_path = os.path.join(source_folder_path, full_filename)
-            target_file_folder_path = os.path.join(target_folder_path, filename)
-            target_file_path = os.path.join(target_file_folder_path, full_filename)
+            target_dirname = filename.lower().replace(' ', '-')
+
+            source_filepath = os.path.join(source_folder_path, full_filename)
+            target_dirpath = os.path.join(target_folder_path, target_dirname)
+            target_filepath = os.path.join(target_folder_path, target_dirname, 'index.md')
 
             # Create the target file path
-            os.makedirs(target_file_folder_path)
+            os.makedirs(target_dirpath)
 
-            with open(source_file_path, 'r') as source_file:
+            with open(source_filepath, 'r') as source_file:
 
                 file_content = source_file.read()
 
@@ -56,17 +58,17 @@ if __name__ == "__main__":
                     file_content = file_content.replace(file_frontmatter_yaml_match.group(0), new_file_frontmatter_yaml,1)
 
                 else:
-                    raise ValueError(f"Frontmatter not found in {source_file_path}")
+                    raise ValueError(f"Frontmatter not found in {source_filepath}")
                 print(file_frontmatter)
 
                 attachment_matches = re.finditer(r'[!]\[\[(.*?)([|](.*?))?\]\]', file_content)
                 for attachment_match in attachment_matches:
                     attachment_name = attachment_match.group(1)
                     source_attachment_path = os.path.join(OBSIDIAN_ASSETS_PATH, attachment_name)
-                    target_attachment_path = os.path.join(target_file_folder_path, attachment_name)
+                    target_attachment_path = os.path.join(target_dirpath, attachment_name)
                     shutil.copyfile(source_attachment_path, target_attachment_path)
                     # file_content[attachment_match.start():attachment_match.end()] = f'![{attachment_name}](./{attachment_name})'
                     file_content = file_content.replace(attachment_match.group(0), f'![{attachment_name}](./{attachment_name})')
 
-                with open(target_file_path, 'w') as target_file:
+                with open(target_filepath, 'w') as target_file:
                     target_file.write(file_content)

@@ -26,7 +26,7 @@ if (homeBodyCollection.length > 0) {
   const { Content } = await render(homeBody)
   HomeBodyContent = Content
 }
-const posts = (await getSortedPosts()).slice(0, siteConfig.pageSize)
+const posts = (await getSortedPosts('articles')).slice(0, siteConfig.pageSize)
 ---
 
 <Layout>

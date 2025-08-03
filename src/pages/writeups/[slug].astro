@@ -10,7 +10,7 @@ import TableOfContents from '@components/TableOfContents.astro'
 import { Image } from 'astro:assets'
 
 export const getStaticPaths = (async () => {
-  const posts = await getSortedPosts()
+  const posts = await getSortedPosts('writeups')
   return posts.map((post, index) => {
     const validPrev = index > 0
     const validNext = index < posts.length - 1

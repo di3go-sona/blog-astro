@@ -33,7 +33,7 @@ const config: SiteConfig = {
     },
     {
       name: '📝Articles',
-      url: '/posts',
+      url: '/articles',
     },
     {
       name: '⛳️CTF Writeups',

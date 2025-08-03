@@ -9,7 +9,7 @@ import siteConfig from '../../site.config'
 
 // Note: Pagination like '/', '/2', '/3' only works with spread param like [...page]
 export const getStaticPaths = (async ({ paginate }) => {
-  const sortedPosts = await getSortedPosts()
+  const sortedPosts = await getSortedPosts('writeups')
   return paginate(sortedPosts, { pageSize: siteConfig.pageSize })
 }) satisfies GetStaticPaths
 
@@ -17,7 +17,7 @@ const { page } = Astro.props
 ---
 
 <Layout>
-  <BlockHeader>Archive</BlockHeader>
+  <BlockHeader>CTF Writeups Archive</BlockHeader>
   <PostPreviewsWithYear posts={page.data} />
   <Pagination
     prevLink={page.url.prev ? url(page.url.prev) : undefined}

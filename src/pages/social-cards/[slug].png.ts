@@ -81,7 +81,7 @@ export async function GET(context: APIContext) {
 }
 
 export async function getStaticPaths() {
-  const posts = await getSortedPosts()
+  const posts = await getSortedPosts('articles')
   return posts
     .map((post) => ({
       params: { slug: post.id },

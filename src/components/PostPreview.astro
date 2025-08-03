@@ -5,7 +5,7 @@ import type { CollectionEntry } from 'astro:content'
 import { render } from 'astro:content'
 
 interface Props {
-  post: CollectionEntry<'posts'>
+  post: CollectionEntry<'articles' | 'writeups'>
 }
 
 const { post } = Astro.props
@@ -17,7 +17,7 @@ const description = remarkPluginFrontmatter.description || post.data.description
 
 <article class="w-full py-5 my-4 border-accent/10">
   <h1 class="mb-3 text-2xl text-[var(--theme-h1)] font-semibold">
-    <a href={url('posts', post.id)}># {post.data.title}</a>
+    <a href={url('articles', post.id)}># {post.data.title}</a>
   </h1>
   <div class="text-foreground/80 my-3">
     <time>{dateString(post.data.published)}</time>
@@ -49,7 +49,7 @@ const description = remarkPluginFrontmatter.description || post.data.description
     )
   }
   <div>
-    <a class="button flex items-center" href={url('posts', post.id)}>
+    <a class="button flex items-center" href={url('articles', post.id)}>
       Read
       <Icon name="chevrons-right" class="size-5 ml-2" />
     </a>

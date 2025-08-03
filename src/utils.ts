@@ -107,8 +107,8 @@ export function resolveElementStyles(
   return result
 }
 
-export async function getSortedPosts() {
-  const allPosts = await getCollection('posts', ({ data }) => {
+export async function getSortedPosts(collection: 'articles' | 'writeups') {
+  const allPosts = await getCollection(collection, ({ data }) => {
     return import.meta.env.PROD ? data.draft !== true : true
   })
   const sortedPosts = allPosts.sort((a, b) => {
