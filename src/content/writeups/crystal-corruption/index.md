@@ -1,5 +1,8 @@
 ---
+ctf: CyberApocalypse 2025
 published: 2025-04-02
+tags:
+- AI
 title: Crystal Corruption
 
 ---

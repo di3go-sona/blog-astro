@@ -1,5 +1,8 @@
 ---
+ctf: CyberApocalypse 2024
 published: 2024-03-16
+tags:
+- Blockchain
 title: Lucky Faucet
 
 ---

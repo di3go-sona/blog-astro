@@ -1,5 +1,7 @@
 ---
 published: 2023-06-20
+tags:
+- AI
 title: Explainable AI - Black Boxes & Clever Horses
 
 ---

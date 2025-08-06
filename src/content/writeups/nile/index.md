@@ -1,5 +1,8 @@
 ---
+ctf: LakeCTF 2022
 published: 2022-11-11
+tags:
+- Blockchain
 title: Nile
 
 ---

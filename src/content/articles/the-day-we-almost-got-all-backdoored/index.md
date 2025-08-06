@@ -1,5 +1,7 @@
 ---
 published: 2024-04-01
+tags:
+- Cybersecurity
 title: The day we almost got all backdoored
 
 ---

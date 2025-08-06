@@ -5,6 +5,7 @@ import yaml
 
 from marko import Markdown
 
+
 OBSIDIAN_VAULT_PATH = '/Users/di3go/Library/Mobile Documents/iCloud~md~obsidian/Documents/vault/'
 ASTRO_CONTENT_PATH = '/Users/di3go/Projects/multiterm-astro/src/content'
 OBSIDIAN_PAGES_PATH = f"{OBSIDIAN_VAULT_PATH}/Pages"
@@ -53,13 +54,20 @@ if __name__ == "__main__":
                     new_file_frontmatter = {}
                     new_file_frontmatter['title'] = filename
                     new_file_frontmatter['published'] = file_frontmatter['Created']
+                    if 'CTF' in file_frontmatter:
+                        new_file_frontmatter['ctf'] = file_frontmatter['CTF']
+                    if 'Tags' in file_frontmatter:
+                        new_file_frontmatter['tags'] = [f.replace('#', '') for f in file_frontmatter['Tags']]
+                    if 'tags' in file_frontmatter:
+                        new_file_frontmatter['tags'] = [f.replace('#', '') for f in file_frontmatter['tags']]
+
 
                     new_file_frontmatter_yaml = f"---\n{yaml.dump(new_file_frontmatter)}\n---\n"
                     file_content = file_content.replace(file_frontmatter_yaml_match.group(0), new_file_frontmatter_yaml,1)
 
                 else:
                     raise ValueError(f"Frontmatter not found in {source_filepath}")
-                print(file_frontmatter)
+                print(new_file_frontmatter)
 
                 attachment_matches = re.finditer(r'[!]\[\[(.*?)([|](.*?))?\]\]', file_content)
                 for attachment_match in attachment_matches:

@@ -1,5 +1,7 @@
 ---
 published: 2025-05-30
+tags:
+- AI
 title: LLMs, How did we get here
 
 ---

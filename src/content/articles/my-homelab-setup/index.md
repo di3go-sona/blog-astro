@@ -1,5 +1,8 @@
 ---
 published: 2025-07-21
+tags:
+- Homelab
+- Infra
 title: My Homelab setup
 
 ---

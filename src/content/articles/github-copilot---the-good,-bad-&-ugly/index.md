@@ -1,5 +1,7 @@
 ---
 published: 2023-07-21
+tags:
+- AI
 title: Github Copilot - The Good, Bad & Ugly
 
 ---
