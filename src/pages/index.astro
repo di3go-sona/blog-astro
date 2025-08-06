@@ -47,7 +47,7 @@ const writeups = (await getSortedPosts('writeups')).slice(0, 3)
   }
   <BlockHeader>📝 Latest Articles</BlockHeader>
   {articles.map((article) => <PostPreview post={article} />)}
-  <Pagination nextLink={url('posts')} nextText="All Articles" />
+  <Pagination nextLink={url('articles')} nextText="All Articles" />
   <BlockHeader>⛳️ Latest Writeups</BlockHeader>
   {writeups.map((writeup) => <PostPreview post={writeup} />)}
   <Pagination nextLink={url('writeups')} nextText="All Writeups" />
