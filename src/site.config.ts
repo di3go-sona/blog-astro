@@ -28,19 +28,19 @@ const config: SiteConfig = {
   // The navigation links to display in the header.
   navLinks: [
     {
-      name: '🏠Home',
+      name: ' Home ',
       url: '/',
     },
     {
-      name: '📝Articles',
+      name: ' Articles ',
       url: '/articles',
     },
     {
-      name: '⛳️CTF Writeups',
+      name: ' CTF Writeups ',
       url: '/writeups',
     },
     // {
-    //   name: '📟GitHub',
+    //   name: ' GitHub',
     //   url: 'https://github.com/di3go-sona',
     //   external: true,
     // },

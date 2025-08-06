@@ -26,7 +26,8 @@ if (homeBodyCollection.length > 0) {
   const { Content } = await render(homeBody)
   HomeBodyContent = Content
 }
-const posts = (await getSortedPosts('articles')).slice(0, siteConfig.pageSize)
+const articles = (await getSortedPosts('articles')).slice(0, 3)
+const writeups = (await getSortedPosts('writeups')).slice(0, 3)
 ---
 
 <Layout>
@@ -44,9 +45,12 @@ const posts = (await getSortedPosts('articles')).slice(0, siteConfig.pageSize)
       </HomeBanner>
     )
   }
-  <BlockHeader>Latest Posts</BlockHeader>
-  {posts.map((post) => <PostPreview post={post} />)}
-  <Pagination nextLink={url('posts')} nextText="Archive" />
+  <BlockHeader>📝 Latest Articles</BlockHeader>
+  {articles.map((article) => <PostPreview post={article} />)}
+  <Pagination nextLink={url('posts')} nextText="All Articles" />
+  <BlockHeader>⛳️ Latest Writeups</BlockHeader>
+  {writeups.map((writeup) => <PostPreview post={writeup} />)}
+  <Pagination nextLink={url('writeups')} nextText="All Writeups" />
 </Layout>
 
 <style is:global>
